@@ -9,6 +9,6 @@ on:
         description: A cheerful word
 jobs:
   run:
-    run-on: windows-latest
+    runs-on: windows-latest
     steps:
       - run: echo "${{ inputs.greeting }}"
