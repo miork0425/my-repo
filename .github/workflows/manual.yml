@@ -4,11 +4,11 @@ on:
     inputs:
       greeting:
         type: string
-        default: Hello
+        default: Hello world
         required: true
         description: A cheerful word
 jobs:
   run:
-    runs-on: windows-latest
+    run-on: windows-latest
     steps:
       - run: echo "${{ inputs.greeting }}"
