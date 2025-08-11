@@ -17,7 +17,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          CONTENT=$(cat file.c | jq -Rs .)
+          CONTENT=$(cat main.go | jq -Rs .)
           curl https://api.openai.com/v1/chat/completions \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $OPENAI_API_KEY" \
