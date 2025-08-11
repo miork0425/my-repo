@@ -1,5 +1,5 @@
 name: variables
-on: workflow_dispatch
+on: workflow_dispatch #change point
 jobs:
   print:
     runs-on: ubuntu-latest
