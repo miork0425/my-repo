@@ -1,5 +1,5 @@
 name: Comment
-on: pull_request:
+on: pull_request
 jobs:
     comment:
         runs-on: ubuntu-latest
@@ -8,6 +8,6 @@ jobs:
             contents: read
         steps:
             - uses: actions/checkout@v4
-            - run: gh pr comment "${GITHUB_HEAD_REF}" --body "This is a comment from the workflow., ${GITHUB_ACTOR}"
+            - run: gh pr comment "${GITHUB_HEAD_REF}" --body "This is a comment from the workflow, ${GITHUB_ACTOR}"
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
