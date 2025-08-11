@@ -10,8 +10,8 @@ jobs:
       - name: Get file from GitHub API
         run: |
           curl -H "Accept: application/vnd.github.v3.raw" \
-               https://api.github.com/repos/ユーザー名/リポジトリ名/contents/path/to/file.c \
-               -o file.c
+               https://api.github.com/repos/miork0425/my-repo/contents/path/to/go/excellent/main.go \
+               -o main.go
 
       - name: Send file to OpenAI API for explanation
         env:
