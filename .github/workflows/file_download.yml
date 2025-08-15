@@ -25,3 +25,8 @@ jobs:
 
       - name: Show downloaded file
         run: cat downloaded-file.txt
+      - name: Upload downloaded file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+        name: downloaded-file
+        path: downloaded-file.txt
