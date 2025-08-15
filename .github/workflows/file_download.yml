@@ -28,5 +28,5 @@ jobs:
       - name: Upload downloaded file as artifact
         uses: actions/upload-artifact@v3
         with:
-        name: downloaded-file
-        path: downloaded-file.txt
+          name: downloaded-file
+          path: downloaded-file.txt
