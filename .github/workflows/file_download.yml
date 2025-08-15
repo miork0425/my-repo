@@ -23,8 +23,6 @@ jobs:
           CONTENT=$(echo "$RESPONSE" | jq -r .content | base64 -d)
           echo "$CONTENT" > downloaded-file.txt
 
-      - name: Show downloaded file
-        run: cat downloaded-file.txt
       - name: Upload downloaded file as artifact@4
         uses: actions/upload-artifact@v4
         with:
