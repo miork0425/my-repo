@@ -1,0 +1,27 @@
+name: Download File from GitHub API
+
+on:
+  workflow_dispatch:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v3
+
+      - name: Download file from another repo using GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: miork0425
+          REPO: my-repo
+          FILE_PATH: go/excellent/main.go
+        run: |
+          API_URL="https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}"
+          RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$API_URL")
+          CONTENT=$(echo "$RESPONSE" | jq -r .content | base64 -d)
+          echo "$CONTENT" > downloaded-file.txt
+
+      - name: Show downloaded file
+        run: cat downloaded-file.txt
